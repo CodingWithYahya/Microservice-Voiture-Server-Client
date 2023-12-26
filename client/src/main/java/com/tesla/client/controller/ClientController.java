@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("api/client")
+@RequestMapping("/clients")
 public class ClientController {
 
     @Autowired
@@ -20,7 +20,7 @@ public class ClientController {
         return service.findAll();
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/client/{id}")
     public Client findById(@PathVariable Long id) throws Exception {
         return service.findById(id);
     }
@@ -29,5 +29,4 @@ public class ClientController {
     public void save(@RequestBody Client client) {
         service.addClient(client);
     }
-
 }

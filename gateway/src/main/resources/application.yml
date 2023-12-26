@@ -6,14 +6,18 @@ spring:
     name: Gateway
   cloud:
     discovery:
-      enabled: true
+      enabled: true #false
     gateway:
       mvc:
         routes:
           - id: r1
-            uri: http://localhost:8080/
+            uri: http://localhost:8081/
             predicates:
               - Path=/clients/**
+          - id: r2
+            uri: http://localhost:8089/
+            predicates:
+              - Path=/voitures/**
   main:
     web-application-type: reactive
 eureka:
